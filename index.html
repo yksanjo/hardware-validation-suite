@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Validation Suite - GPU/Hardware Testing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-primary: #0a0e17; --bg-secondary: #111827; --bg-card: #1a2332; --text-primary: #f0f4f8; --text-secondary: #94a3b8; --text-muted: #64748b; --accent-blue: #3b82f6; --accent-cyan: #06b6d4; --accent-green: #10b981; --accent-yellow: #f59e0b; --accent-red: #ef4444; --accent-purple: #8b5cf6; --border-color: #2d3748; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 20px 40px; }
+        .container { padding: 32px 40px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px; }
+        .stat-card { background: var(--bg-card); border-radius: 16px; padding: 24px; border: 1px solid var(--border-color); text-align: center; }
+        .stat-value { font-size: 32px; font-weight: 700; }
+        .stat-label { font-size: 14px; color: var(--text-muted); }
+        .test-section { background: var(--bg-card); border-radius: 16px; padding: 24px; border: 1px solid var(--border-color); }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+        .test-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 12px; }
+        .test-status { width: 12px; height: 12px; border-radius: 50%; }
+        .test-status.pass { background: var(--accent-green); }
+        .test-status.fail { background: var(--accent-red); }
+        .test-status.running { background: var(--accent-yellow); }
+        .test-name { flex: 1; font-weight: 600; font-size: 14px; }
+        .test-result { font-size: 14px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header style="background:var(--bg-secondary);border-bottom:1px solid var(--border-color);padding:20px 40px;display:flex;align-items:center;gap:16px;">
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-green));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;">🔧</div>
+        <div><h1 style="font-size:22px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Hardware Validation Suite</h1><p style="color:var(--text-secondary);font-size:13px;">GPU & hardware testing & validation</p></div>
+    </header>
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-value" style="color:var(--accent-green);">24</div><div class="stat-label">Tests Passed</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--accent-red);">2</div><div class="stat-label">Tests Failed</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--accent-yellow);">1</div><div class="stat-label">Running</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:var(--accent-cyan);">99.8%</div><div class="stat-label">Uptime</div></div>
+        </div>
+        <div class="test-section">
+            <h3 class="section-title">🧪 Test Results</h3>
+            <div class="test-item"><div class="test-status pass"></div><span class="test-name">GPU Memory Bandwidth Test</span><span class="test-result" style="color:var(--accent-green);">PASS</span></div>
+            <div class="test-item"><div class="test-status pass"></div><span class="test-name">CUDA Core Functionality</span><span class="test-result" style="color:var(--accent-green);">PASS</span></div>
+            <div class="test-item"><div class="test-status pass"></div><span class="test-name">Tensor Core Performance</span><span class="test-result" style="color:var(--accent-green);">PASS</span></div>
+            <div class="test-item"><div class="test-status fail"></div><span class="test-name">NVLink Connectivity</span><span class="test-result" style="color:var(--accent-red);">FAIL</span></div>
+            <div class="test-item"><div class="test-status running"></div><span class="test-name">PCIe Bandwidth Test</span><span class="test-result" style="color:var(--accent-yellow);">RUNNING</span></div>
+            <div class="test-item"><div class="test-status pass"></div><span class="test-name">Temperature Throttling</span><span class="test-result" style="color:var(--accent-green);">PASS</span></div>
+        </div>
+    </div>
+</body>
+</html>
